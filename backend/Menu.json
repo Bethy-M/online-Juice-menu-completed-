@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Strawberry Smoothie",
+    "ingredients": ["strawberries", "kiwi", "berries"],
+    "price": 2,
+    "image": "./images/juice1.png"
+  },
+  {
+    "name": "Mango Smoothie",
+    "ingredients": ["mango", "banana"],
+    "price": 2,
+    "image": "./images/juice11.png"
+  },
+  {
+    "name": "Kiwi Smoothie",
+    "ingredients": ["kiwi", "banana"],
+    "price": 2,
+    "image": "./images/juice7.png"
+  },
+  {
+    "name": "Peach Smoothie",
+    "ingredients": ["peach", "banana"],
+    "price": 2,
+    "image": "./images/juice12.png"
+  },
+  {
+    "name": "Strawberry Shake",
+    "ingredients": ["strawberry", "banana", "milk"],
+    "price": 2,
+    "image": "./images/strawberry shake.png"
+  },
+  {
+    "name": "Pineapple Pressed Juice",
+    "ingredients": ["pineapple", "kiwi"],
+    "price": 2,
+    "image": "./images/juice2.png"
+  },
+  {
+    "name": "Chocolate Shake",
+    "ingredients": ["cocoa", "banana"],
+    "price": 2,
+    "image": "./images/chocolate.png"
+  },
+  {
+    "name": "Watermelon Pressed Juice",
+    "ingredients": ["watermelon", "kiwi"],
+    "price": 2,
+    "image": "./images/juice8.png"
+  },
+  {
+    "name": "Banana Shake",
+    "ingredients": ["banana", "milk"],
+    "price": 2,
+    "image": "./images/juice4.png"
+  }
+]

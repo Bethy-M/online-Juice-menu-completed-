@@ -1,0 +1,204 @@
+body {
+  background-color: white;
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: "Lora", sans-serif;
+  margin-bottom: 40px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  background-color: #f9f6eb;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+header .header-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+header h1 {
+  color: #7f7e7e;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+  flex-grow: 1;
+}
+
+header .icons {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+#bag,
+#juicecup {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: #7f7e7e;
+  opacity: 0.4;
+  margin-left: 10px;
+}
+
+.whole {
+  margin-top: 75px; 
+  padding: 20px;
+  margin-left: 1px;
+}
+
+#menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 150px;
+  margin-top: 200px;
+}
+
+.strawberry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 350px;
+}
+
+.strawberry img {
+  width: 230px;
+  height: 230px;
+  padding: 0;
+  z-index: 2;
+  object-fit: cover;
+}
+
+.strawberry h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.ingredients {
+  border-radius: 12px;
+  width: 350px;
+  height: 140px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -70px;
+  padding-top: 90px;
+  z-index: 1;
+}
+
+.ingredients h1,
+.ingredients p,
+.ingredients #price {
+  color: #939292;
+  margin: 5px 0;
+  text-align: center;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.ingredients h1 {
+  font-size: 20px;
+}
+
+.ingredients p {
+  font-size: 13px;
+}
+
+.ingredients #price {
+  color: #777575;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.addcart {
+  background-color: #efda7c;
+  color: white;
+  width: 150px;
+  height: 34px;
+  border: none;
+  border-radius: 20px;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+
+  cursor: pointer;
+  transition: all 0.5s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.addcart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1024px) {
+  #menu {
+    gap: 80px;
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 500px) {
+  header {
+    height: 60px;
+  }
+
+  header h1 {
+    font-size: 1.2em;
+    margin-right: auto;
+  }
+
+  #bag,
+  #juicecup {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+  }
+
+  .whole {
+    margin-top: 60px;
+    padding: 10px;
+  }
+
+  #menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    margin-top: 100px;
+  }
+
+  .strawberry {
+    width: 90%;
+  }
+
+  .ingredients {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+

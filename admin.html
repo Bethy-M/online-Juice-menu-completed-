@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Orders</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f6eb;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #444;
+    }
+
+    #fetchOrders {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: #efda7c;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    #fetchOrders:hover {
+      background: #e6c94c;
+    }
+
+    #ordersList {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .order-card {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .order-card p {
+      margin: 5px 0;
+    }
+
+    .order-card ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .order-card button {
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .order-card button:hover {
+      background: #e65353;
+    }
+
+    .error {
+      color: red;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Admin Orders Page</h1>
+  <button id="fetchOrders">Fetch Orders</button>
+  <div id="ordersList"></div>
+
+  <script>
+    const fetchBtn = document.getElementById("fetchOrders");
+    const ordersList = document.getElementById("ordersList");
+
+    fetchBtn.addEventListener("click", async () => {
+      try {
+        const res = await fetch("https://render-express-deployment-98oj.onrender.com/all_orders");
+        const orders = await res.json();
+
+        ordersList.innerHTML = "";
+
+        if (orders.length === 0) {
+          ordersList.innerHTML = "<p>No orders found.</p>";
+          return;
+        }
+
+        orders.forEach(order => {
+          const div = document.createElement("div");
+          div.className = "order-card";
+
+          div.innerHTML = `
+            <p><strong>Order ID:</strong> ${order.id}</p>
+            <p><strong>Date:</strong> ${order.timestamp}</p>
+            <p><strong>Total:</strong> $${order.total.toFixed(2)}</p>
+            <ul>
+              ${order.items.map(i => `<li>${i.name} - $${i.price.toFixed(2)}</li>`).join("")}
+            </ul>
+            <button data-id="${order.id}">Delete</button>
+          `;
+
+          div.querySelector("button").addEventListener("click", async () => {
+            const updatedOrders = orders.filter(o => o.id !== order.id);
+            await fetch("https://render-express-deployment-98oj.onrender.com/all_orders", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(updatedOrders)
+            });
+            fetchBtn.click(); 
+          });
+
+          ordersList.appendChild(div);
+        });
+      } catch (err) {
+        console.error(err);
+        ordersList.innerHTML = "<p class='error'>Failed to load orders.</p>";
+      }
+    });
+  </script>
+</body>
+</html>
